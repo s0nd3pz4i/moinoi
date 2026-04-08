@@ -1,0 +1,619 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v123_247 {
+  width: 100%;
+  height: 5562px;
+  background: rgba(0,102,160,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_455 {
+  width: 100%;
+  height: 1163px;
+  background: url("../images/v132_455.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 2718px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_460 {
+  width: 100%;
+  color: rgba(255,254,241,1);
+  position: absolute;
+  top: 83px;
+  left: 188px;
+  font-family: 1FTV VIP Blona;
+  font-weight: Regular;
+  font-size: 96px;
+  opacity: 1;
+  text-align: left;
+}
+.v132_464 {
+  width: 100%;
+  height: 619px;
+  background: url("../images/v132_464.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 293px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_472 {
+  width: 100%;
+  color: rgba(253,253,253,1);
+  position: absolute;
+  top: 880px;
+  left: 269px;
+  font-family: 1FTV VIP Aminute;
+  font-weight: Regular;
+  font-size: 40px;
+  opacity: 1;
+  text-align: left;
+}
+.v123_260 {
+  width: 100%;
+  height: 1168px;
+  background: rgba(255,254,241,1);
+  opacity: 1;
+  position: absolute;
+  top: 214px;
+  left: 0px;
+  overflow: hidden;
+}
+.v137_518 {
+  width: 100%;
+  height: 100%;
+  background: none;
+  opacity: 1;
+  position: absolute;
+  top: 352px;
+  left: 209px;
+  overflow: hidden;
+}
+.v144_277 {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,102,160,1), rgba(255,254,241,1));
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v144_276 {
+  width: 100%;
+  height: 100%;
+  background: url("../images/v144_276.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v146_279 {
+  width: 100%;
+  height: 581px;
+  background: linear-gradient(rgba(128,179,201,0), rgba(255,254,241,1));
+  opacity: 1;
+  position: absolute;
+  top: 587px;
+  left: 0px;
+  overflow: hidden;
+}
+.v127_403 {
+  width: 100%;
+  height: 100%;
+  background: url("../images/v127_403.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 55px;
+  left: 1920px;
+  overflow: hidden;
+}
+.v132_447 {
+  width: 100%;
+  color: rgba(241,189,80,1);
+  position: absolute;
+  top: 80px;
+  left: 223px;
+  text-shadow: 0px 4px 4px rgba(0, 0.4000000059604645, 0.6274510025978088, 1);
+  font-family: 1FTV VIP Blona;
+  font-weight: Regular;
+  font-size: 200px;
+  opacity: 1;
+  text-align: center;
+}
+.name {
+  color: #fff;
+}
+.v132_448 {
+  width: 100%;
+  height: 1336px;
+  background: rgba(255,254,241,1);
+  opacity: 1;
+  position: absolute;
+  top: 1382px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_449 {
+  width: 100%;
+  height: 322px;
+  background: url("../images/v132_449.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: 18px solid rgba(241,189,80,1);
+  overflow: hidden;
+}
+.v132_450 {
+  width: 100%;
+  height: 322px;
+  background: url("../images/v132_450.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 346px;
+  left: 0px;
+  border: 18px solid rgba(0,102,160,1);
+  overflow: hidden;
+}
+.v132_451 {
+  width: 100%;
+  height: 322px;
+  background: url("../images/v132_451.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 692px;
+  left: 0px;
+  border: 18px solid rgba(167,28,32,1);
+  overflow: hidden;
+}
+.v132_474 {
+  width: 100%;
+  height: 322px;
+  background: url("../images/v132_474.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 1014px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_453 {
+  width: 100%;
+  height: 322px;
+  background: rgba(255,254,241,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_454 {
+  width: 100%;
+  color: rgba(0,102,160,1);
+  position: absolute;
+  top: 83px;
+  left: 188px;
+  font-family: 1FTV VIP Blona;
+  font-weight: Regular;
+  font-size: 96px;
+  opacity: 1;
+  text-align: left;
+}
+.v132_475 {
+  width: 100%;
+  height: 1359px;
+  background: rgba(255,254,241,1);
+  opacity: 1;
+  position: absolute;
+  top: 3881px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_476 {
+  width: 100%;
+  height: 1360px;
+  background: rgba(0,102,160,1);
+  opacity: 1;
+  position: absolute;
+  top: 1px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_477 {
+  width: 100%;
+  height: 488px;
+  background: url("../images/v132_477.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_478 {
+  width: 100%;
+  height: 488px;
+  background: url("../images/v132_478.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 488px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_479 {
+  width: 100%;
+  height: 488px;
+  background: url("../images/v132_479.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 976px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_480 {
+  width: 100%;
+  height: 488px;
+  background: url("../images/v132_480.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 1464px;
+  left: 0px;
+  overflow: hidden;
+}
+.v150_369 {
+  width: 100%;
+  height: 488px;
+  background: url("../images/v150_369.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 1952px;
+  left: 0px;
+  overflow: hidden;
+}
+.v150_370 {
+  width: 100%;
+  height: 488px;
+  background: url("../images/v150_370.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 2440px;
+  left: 0px;
+  overflow: hidden;
+}
+.v150_371 {
+  width: 100%;
+  height: 488px;
+  background: url("../images/v150_371.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 2928px;
+  left: 0px;
+  overflow: hidden;
+}
+.v150_372 {
+  width: 100%;
+  height: 488px;
+  background: url("../images/v150_372.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 3416px;
+  left: 0px;
+  overflow: hidden;
+}
+.v150_373 {
+  width: 100%;
+  height: 488px;
+  background: url("../images/v150_373.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 3904px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_481 {
+  width: 870px;
+  height: 1359px;
+  background: url("../images/v132_481.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 1050px;
+  overflow: hidden;
+}
+.v150_279 {
+  width: 601px;
+  height: 502px;
+  background: url("../images/v150_279.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 4px;
+  opacity: 1;
+  position: absolute;
+  top: 816px;
+  left: 131px;
+  overflow: hidden;
+}
+.v150_280 {
+  width: 601px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-family: 1FTV VIP Aminute;
+  font-weight: Regular;
+  font-size: 23px;
+  opacity: 1;
+  text-align: justified;
+}
+.v150_362 {
+  width: 611px;
+  height: 697px;
+  background: url("../images/v150_362.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 37px;
+  left: 131px;
+  overflow: hidden;
+}
+.v132_486 {
+  width: 435px;
+  color: rgba(50,58,69,1);
+  position: absolute;
+  top: 317px;
+  left: 0px;
+  font-family: 1FTV VIP Blona;
+  font-weight: Regular;
+  font-size: 36px;
+  opacity: 1;
+  text-align: left;
+}
+.v132_487 {
+  width: 254px;
+  height: 74px;
+  background: url("../images/v132_487.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 16px;
+  opacity: 1;
+  position: absolute;
+  top: 384px;
+  left: 0px;
+  overflow: hidden;
+}
+.name {
+  color: #fff;
+}
+.name {
+  color: #fff;
+}
+.name {
+  color: #fff;
+}
+.v132_492 {
+  width: 528px;
+  height: 246px;
+  background: url("../images/v132_492.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 32px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_493 {
+  width: 467px;
+  height: 246px;
+  background: url("../images/v132_493.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 16px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_496 {
+  width: 467px;
+  height: 152px;
+  background: url("../images/v132_496.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 4px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_497 {
+  width: 364px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-family: 1FTV VIP Blona;
+  font-weight: Regular;
+  font-size: 96px;
+  opacity: 1;
+  text-align: center;
+}
+.v132_498 {
+  width: 467px;
+  color: rgba(33,38,46,1);
+  position: absolute;
+  top: 123px;
+  left: 0px;
+  font-family: 1FTV VIP Aminute;
+  font-weight: Regular;
+  font-size: 32px;
+  opacity: 1;
+  text-align: center;
+}
+.v132_499 {
+  width: 416px;
+  color: rgba(167,28,32,1);
+  position: absolute;
+  top: 168px;
+  left: 0px;
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 64px;
+  opacity: 1;
+  text-align: center;
+}
+.v132_502 {
+  width: 611px;
+  height: 76px;
+  background: url("../images/v132_502.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 8px;
+  opacity: 1;
+  position: absolute;
+  top: 532px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_503 {
+  width: 611px;
+  height: 76px;
+  background: rgba(0,102,160,1);
+  padding: 16px 36px;
+  margin: 10px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v132_504 {
+  width: 225px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 16px;
+  left: 193px;
+  font-family: 1FTV VIP Blona;
+  font-weight: Regular;
+  font-size: 36px;
+  opacity: 1;
+  text-align: left;
+}
+.v137_515 {
+  width: 611px;
+  height: 76px;
+  background: url("../images/v137_515.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 8px;
+  opacity: 1;
+  position: absolute;
+  top: 621px;
+  left: 0px;
+  overflow: hidden;
+}
+.v137_516 {
+  width: 611px;
+  height: 76px;
+  background: url("../images/v137_516.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 16px 36px;
+  margin: 10px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v137_517 {
+  width: 244px;
+  color: rgba(0,102,160,1);
+  position: absolute;
+  top: 16px;
+  left: 184px;
+  font-family: 1FTV VIP Blona;
+  font-weight: Regular;
+  font-size: 36px;
+  opacity: 1;
+  text-align: left;
+}
+.name {
+  color: #fff;
+}

@@ -1,0 +1,66 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Users collection
+    match /users/{userId} {
+      // Anyone authenticated can read users (needed for admin to list students)
+      allow read: if request.auth != null;
+      // Users can only create/update their own document
+      allow create, update: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Medical Records
+    match /medical_records/{recordId} {
+      // Authenticated users can read (client-side filters by userId)
+      allow read: if request.auth != null;
+      // Only admin can write
+      allow create, update, delete: if isAdmin();
+    }
+    
+    // Visit History
+    match /visit_history/{historyId} {
+      allow read: if request.auth != null;
+      allow create: if isAdmin();
+    }
+    
+    // Appointments - students can create their own, admin manages all
+    match /appointments/{appointmentId} {
+      // All authenticated can read (client filters)
+      allow read: if request.auth != null;
+      // Any authenticated user can create appointments
+      allow create: if request.auth != null;
+      // Only admin can update (approve/reject)
+      allow update: if isAdmin();
+    }
+    
+    // Tickets - students can create their own, admin manages all
+    match /tickets/{ticketId} {
+      // All authenticated can read (client filters)
+      allow read: if request.auth != null;
+      // Any authenticated user can create tickets
+      allow create: if request.auth != null;
+      // Only admin can update (reply)
+      allow update: if isAdmin();
+    }
+    
+    // News - everyone authenticated can read, admin writes
+    match /news/{newsId} {
+      allow read: if request.auth != null;
+      allow create, update, delete: if isAdmin();
+    }
+    
+    // Page Visit Analytics - anyone authenticated can create, admin can read
+    match /page_visits/{visitId} {
+      allow read: if isAdmin();
+      allow create: if request.auth != null;
+    }
+  }
+}
