@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mối Nối - Chi Tiết Ví Cầm Tay</title>
+    <style>
+        /* === NHÚNG FONT CHỮ === */
+        @font-face {
+            font-family: 'Blona';
+            src: url('1FTVVIPBLONA-REGULAR.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Blona';
+            src: url('1FTVVIPBLONA-ITALIC.TTF') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Aminute';
+            src: url('1FTV-VIP-Aminute.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* === BIẾN MÀU SẮC THƯƠNG HIỆU === */
+        :root {
+            --brand-white: #fffef1;
+            --brand-red: #a71c20;
+            --brand-red-dot: #8c1619;
+            --brand-blue: #0066a0;
+            --brand-blue-dot: #004d7a;
+            --brand-yellow: #f1bd50;
+            --brand-yellow-dot: #d6a542;
+            --text-dark: #111111;
+        }
+
+        /* === RESET & CƠ BẢN === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Aminute', sans-serif; 
+            color: var(--text-dark);
+            background-color: var(--brand-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6, .logo {
+            font-family: 'Blona', serif;
+            font-weight: normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* === PATTERN NỀN === */
+        .bg-blue {
+            background-color: var(--brand-blue);
+            background-image: radial-gradient(var(--brand-blue-dot) 15%, transparent 16%), radial-gradient(var(--brand-blue-dot) 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--brand-white);
+        }
+
+        .bg-white {
+            background-color: var(--brand-white);
+            color: var(--text-dark);
+        }
+
+        /* === BỐ CỤC CHUNG === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        /* === NAVBAR === */
+        header {
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            color: var(--brand-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: var(--brand-white);
+            text-transform: uppercase;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--brand-yellow);
+        }
+
+        /* === HERO DETAIL === */
+        .hero-detail {
+            text-align: center;
+            padding: 40px 0 80px;
+        }
+
+        .hero-detail h1 {
+            color: var(--brand-yellow);
+            font-size: 64px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-detail-images {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 30px;
+        }
+
+        .hero-detail-images img {
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            max-width: 32%;
+            transition: transform 0.3s;
+        }
+        
+        .hero-detail-images img:hover {
+            transform: translateY(-10px);
+        }
+
+        /* === TEXTURE STRIPS === */
+        .texture-strips {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 40px 0;
+        }
+
+        .texture-strip {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border: 4px solid;
+        }
+
+        .border-yellow { border-color: var(--brand-yellow); }
+        .border-blue { border-color: var(--brand-blue); }
+        .border-red { border-color: var(--brand-red); }
+
+        /* === QUOTE SECTIONS === */
+        .quote-section-1 {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .quote-section-1 h2 {
+            color: var(--brand-blue);
+            font-size: 42px;
+        }
+
+        .quote-section-2 {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .quote-section-2 h2 {
+            font-size: 42px;
+            color: var(--brand-white);
+            margin-bottom: 50px;
+        }
+
+        .quote-images {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .quote-images img {
+            max-width: 30%;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .quote-section-2 p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            color: var(--brand-white);
+        }
+
+        /* === PURCHASE AREA === */
+        .purchase-area {
+            padding-bottom: 80px;
+        }
+
+        .purchase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .product-gallery img {
+            max-width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .product-info-card {
+            background-color: var(--brand-white);
+            color: var(--text-dark);
+            padding: 50px 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .product-info-card h1 {
+            font-size: 48px;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        .product-info-card .category {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .product-info-card .price {
+            font-family: 'Blona', serif;
+            font-size: 32px;
+            color: var(--brand-red);
+            margin-bottom: 30px;
+        }
+
+        /* === CHỌN MÀU SẮC (SWATCHES) CHUẨN === */
+        .color-selection h4 {
+            font-family: 'Blona', serif;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .swatches {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        /* Lớp bọc bên ngoài (đóng vai trò làm viền khi active) */
+        .swatch-wrap {
+            width: 44px;
+            height: 44px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background-color: transparent; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Cục màu lõi bên trong */
+        .swatch {
+            width: 44px;
+            height: 44px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            transition: all 0.3s ease;
+        }
+
+        .swatch.blue { background-color: var(--brand-blue); }
+        .swatch.red { background-color: var(--brand-red); }
+        .swatch.yellow { background-color: var(--brand-yellow); }
+
+        /* Khi được click (thêm class active) */
+        .swatch-wrap.active {
+            background-color: var(--brand-blue); /* Hiện viền xanh thương hiệu */
+            transform: scale(1.15); /* Hơi phóng to */
+        }
+
+        .swatch-wrap.active .swatch {
+            width: 36px; /* Thu nhỏ cục màu lõi để chừa không gian cho viền */
+            height: 36px;
+        }
+
+        /* Hiệu ứng hover khi chưa click */
+        .swatch-wrap:hover:not(.active) {
+            transform: scale(1.1);
+        }
+
+        /* === HIỆU ỨNG LÀM MỜ KHI LƯỚT QUA === */
+        /* Khi hover vào toàn bộ khu vực .swatches, những ô màu không được hover và không phải là ô đang active sẽ bị làm mờ */
+        .swatches:hover .swatch-wrap:not(:hover):not(.active) {
+            opacity: 0.4;
+            filter: grayscale(20%); /* Tuỳ chọn thêm: hơi ám xám nhẹ để tôn màu đang hover lên */
+        }
+
+        /* === BUTTONS & DESC === */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            font-family: 'Blona', serif;
+            font-size: 18px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid var(--brand-blue);
+        }
+
+        .btn-primary {
+            background-color: var(--brand-blue);
+            color: var(--brand-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--brand-white);
+            color: var(--brand-blue);
+        }
+
+        .btn-secondary {
+            background-color: var(--brand-white);
+            color: var(--brand-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--brand-blue);
+            color: var(--brand-white);
+        }
+
+        .product-desc p {
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background-color: var(--brand-white);
+            padding: 50px 0 20px;
+            border-top: 2px solid var(--brand-blue);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h3 {
+            color: var(--brand-blue);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Blona', serif;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: var(--text-dark);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .copyright {
+            text-align: right;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .purchase-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero-detail-images { flex-direction: column; align-items: center; }
+            .hero-detail-images img { max-width: 80%; }
+            .quote-images { flex-direction: column; align-items: center; }
+            .quote-images img { max-width: 80%; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .copyright { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BẮT ĐẦU HEADER -->
+    <div class="bg-blue">
+        <div class="container">
+            <header>
+                <nav>
+                    <div class="logo">Mối Nối</div>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="sp.html">Sản phẩm</a></li>
+                        <li><a href="about us.html">Mối nối</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                    <div class="icons" style="color: var(--brand-white);">🔍 🛒 👤</div>
+                </nav>
+            </header>
+        </div>
+    </div>
+    <!-- KẾT THÚC HEADER -->
+
+    <!-- HERO DETAIL -->
+    <div class="bg-blue">
+        <section class="hero-detail container">
+            <h1>VÍ CẦM TAY</h1>
+            <div class="hero-detail-images">
+                <img src="https://placehold.co/300x250/f1bd50/333333?text=Ví+Vàng" alt="Ví Vàng">
+                <img src="https://placehold.co/350x280/0066a0/fffef1?text=Ví+Xanh+Lớn" alt="Ví Xanh">
+                <img src="https://placehold.co/300x250/a71c20/fffef1?text=Ví+Đỏ" alt="Ví Đỏ">
+            </div>
+        </section>
+    </div>
+
+    <!-- TEXTURE STRIPS -->
+    <section class="texture-strips bg-white container">
+        <img src="https://placehold.co/1200x120/f1bd50/333333?text=Texture+Vàng" alt="Texture Vàng" class="texture-strip border-yellow">
+        <img src="https://placehold.co/1200x120/0066a0/fffef1?text=Texture+Xanh" alt="Texture Xanh" class="texture-strip border-blue">
+        <img src="https://placehold.co/1200x120/a71c20/fffef1?text=Texture+Đỏ" alt="Texture Đỏ" class="texture-strip border-red">
+    </section>
+
+    <!-- QUOTE 1 (Nền trắng) -->
+    <section class="quote-section-1 bg-white container">
+        <h2>Tỉ mỉ đến từng đường kim.</h2>
+    </section>
+
+    <!-- QUOTE 2 & PURCHASE AREA (Nền xanh) -->
+    <div class="bg-blue">
+        <section class="quote-section-2 container section-padding">
+            <h2>Tái sinh từ những mảnh ghép.</h2>
+            <div class="quote-images">
+                <img src="https://placehold.co/300x220/a71c20/fffef1?text=Ví+Đỏ+Góc+Khác" alt="Ví Đỏ">
+                <img src="https://placehold.co/300x220/0066a0/fffef1?text=Ví+Xanh+Góc+Khác" alt="Ví Xanh">
+                <img src="https://placehold.co/300x220/f1bd50/333333?text=Ví+Vàng+Góc+Khác" alt="Ví Vàng">
+            </div>
+            <p>Nhỏ nhắn nhưng đầy sức chứa. Những chiếc ví từ len sợi của Mối Nối là sự kết hợp hoàn hảo giữa tính tiện dụng và nghệ thuật độc bản. Không có hai chiếc ví nào hoàn toàn giống nhau, cũng giống như cá tính độc bản của bạn.</p>
+        </section>
+
+        <section class="purchase-area container">
+            <div class="purchase-grid">
+                <!-- Cột trái: Ảnh sản phẩm -->
+                <div class="product-gallery">
+                    <img src="https://placehold.co/400x300/0066a0/fffef1?text=Ví+Xanh+Chi+Tiết" alt="Ví Xanh">
+                    <img src="https://placehold.co/400x300/f1bd50/333333?text=Ví+Vàng+Chi+Tiết" alt="Ví Vàng">
+                    <img src="https://placehold.co/400x300/a71c20/fffef1?text=Ví+Đỏ+Chi+Tiết" alt="Ví Đỏ">
+                </div>
+
+                <!-- Cột phải: Thông tin & Đặt hàng -->
+                <div class="product-info-card">
+                    <h1>VÍ CẦM TAY</h1>
+                    <p class="category">Sản phẩm làm từ vải sợi tái chế</p>
+                    <div class="price">499.000 VNĐ</div>
+
+                    <div class="color-selection">
+                        <h4>SẮC MÀU BẠN MUỐN CỦA SẢN PHẨM</h4>
+                        <div class="swatches">
+                            <!-- Đã cập nhật đúng chuẩn cấu trúc swatch-wrap mới -->
+                            <div class="swatch-wrap active" onclick="selectColor(this)">
+                                <div class="swatch blue" title="Màu Xanh"></div>
+                            </div>
+                            <div class="swatch-wrap" onclick="selectColor(this)">
+                                <div class="swatch red" title="Màu Đỏ"></div>
+                            </div>
+                            <div class="swatch-wrap" onclick="selectColor(this)">
+                                <div class="swatch yellow" title="Màu Vàng"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <a class="btn btn-primary">THANH TOÁN NGAY</a>
+                        <a class="btn btn-secondary">THÊM VÀO GIỎ HÀNG</a>
+                    </div>
+
+                    <div class="product-desc">
+                        <p>Được tạo ra từ những đôi bàn tay khéo léo của người thợ thủ công, ví cầm tay Mối Nối mang đến cho bạn không chỉ là một sản phẩm thời trang mà còn là một câu chuyện. Chất liệu vải tái chế thân thiện với môi trường, thiết kế độc bản, đường may tỉ mỉ, chắc chắn.</p>
+                        <p><strong>Mối Nối - Chuyện của vải.</strong><br>Sản phẩm thân thiện với môi trường.</p>
+                        <p><em>* Lưu ý: Vì là sản phẩm thủ công tái chế nên màu sắc và họa tiết từng chiếc ví có thể chênh lệch đôi chút so với hình ảnh mẫu. Điều này tạo nên sự độc bản cho chiếc ví của bạn!</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- BẮT ĐẦU FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h3>Mối Nối</h3>
+                    <p>Thương hiệu túi xách thủ công thân thiện môi trường, mang đậm bản sắc văn hóa Việt.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Mối Nối</h4>
+                    <ul>
+                        <li><a href="sp.html">Túi đeo chéo</a></li>
+                        <li><a href="sp.html">Ví cầm tay</a></li>
+                        <li><a href="about us.html">Về Mối Nối</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Dịch vụ</h4>
+                    <ul>
+                        <li><a href="#">Doanh nghiệp</a></li>
+                        <li><a href="#">CSKH</a></li>
+                        <li><a href="#">Hướng dẫn bảo quản</a></li>
+                        <li><a href="#">Bảo hành</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Pháp lý</h4>
+                    <ul>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Mối Nối. Tất cả các quyền được bảo lưu.
+            </div>
+        </div>
+    </footer>
+    <!-- KẾT THÚC FOOTER -->
+
+    <!-- SCRIPT XỬ LÝ CHỌN MÀU SẮC -->
+    <script>
+        function selectColor(element) {
+            // Lấy tất cả các lớp bọc (swatch-wrap) đã được sửa lại cho đúng Class
+            let swatches = document.querySelectorAll('.swatch-wrap');
+            
+            // Gỡ bỏ trạng thái 'active' khỏi toàn bộ
+            swatches.forEach(swatch => {
+                swatch.classList.remove('active');
+            });
+            
+            // Kích hoạt trạng thái 'active' cho màu vừa được bấm
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

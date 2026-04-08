@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mối Nối - Chuyện Của Vải</title>
+    <style>
+        /* === NHÚNG FONT CHỮ === */
+        @font-face {
+            font-family: 'Blona';
+            src: url('1FTVVIPBLONA-REGULAR.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Blona';
+            src: url('1FTVVIPBLONA-ITALIC.TTF') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Aminute';
+            src: url('1FTV-VIP-Aminute.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* === BIẾN MÀU SẮC THƯƠNG HIỆU === */
+        :root {
+            --brand-white: #fffef1;
+            --brand-red: #a71c20;
+            --brand-red-dot: #8c1619; /* Đậm hơn chút để làm vân */
+            --brand-blue: #0066a0;
+            --brand-blue-dot: #004d7a;
+            --brand-yellow: #f1bd50;
+            --brand-yellow-dot: #d6a542;
+            --text-dark: #333333;
+        }
+
+        /* === RESET & CƠ BẢN === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Font nội dung */
+            font-family: 'Aminute', sans-serif; 
+            color: var(--text-dark);
+            background-color: var(--brand-white);
+            line-height: 1.6;
+        }
+
+        /* Font tiêu đề */
+        h1, h2, h3, h4, h5, h6, .logo {
+            font-family: 'Blona', serif;
+            font-weight: normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* === PATTERN NỀN (CHẤM BI) === */
+        .bg-blue {
+            background-color: var(--brand-blue);
+            background-image: radial-gradient(var(--brand-blue-dot) 15%, transparent 16%), radial-gradient(var(--brand-blue-dot) 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--brand-white);
+        }
+
+        .bg-red {
+            background-color: var(--brand-red);
+            background-image: radial-gradient(var(--brand-red-dot) 15%, transparent 16%), radial-gradient(var(--brand-red-dot) 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--brand-white);
+        }
+
+        .bg-yellow {
+            background-color: var(--brand-yellow);
+            background-image: radial-gradient(var(--brand-yellow-dot) 15%, transparent 16%), radial-gradient(var(--brand-yellow-dot) 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--text-dark);
+        }
+
+        /* === BỐ CỤC CHUNG === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* === NAVBAR === */
+        header {
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            color: var(--brand-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: var(--brand-white);
+            text-transform: uppercase;
+            font-size: 16px; /* Font aminute có thể cần size to hơn chút */
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            text-align: center;
+            padding-bottom: 60px;
+        }
+
+        .hero h1 {
+            color: var(--brand-yellow);
+            font-size: 56px;
+            text-transform: uppercase;
+            margin: 40px 0 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto 50px;
+            font-size: 18px; /* Tăng size cho font Aminute */
+        }
+
+        .hero-products {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .hero-products img {
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* === TÚI ĐEO CHÉO (ZIG-ZAG LAYOUT) === */
+        .feature-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            gap: 40px;
+        }
+
+        .feature-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-text h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-text p {
+            font-size: 18px;
+        }
+
+        .text-red { color: var(--brand-red); }
+        .text-blue { color: var(--brand-blue); }
+        .text-yellow { color: var(--brand-yellow); }
+
+        .feature-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .feature-image img {
+            max-width: 300px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        /* === VÍ CẦM TAY (ĐỎ) === */
+        .clutch-section .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .clutch-image {
+            flex: 1;
+        }
+        
+        .clutch-image img {
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .clutch-text {
+            flex: 1;
+        }
+
+        .clutch-text h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--brand-white);
+        }
+        
+        .clutch-text p {
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--brand-white);
+            color: var(--brand-red);
+            font-family: 'Blona', serif; /* Nút bấm dùng font tiêu đề cho nổi bật */
+            font-size: 18px;
+            border-radius: 25px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--brand-yellow);
+            color: var(--text-dark);
+        }
+
+        /* === SẢN PHẨM GRID === */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .product-card img {
+            margin: 0 auto 20px;
+            max-width: 200px;
+        }
+
+        .product-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .view-more {
+            text-align: center;
+            font-family: 'Blona', serif;
+            font-size: 20px;
+            color: var(--brand-blue);
+            display: block;
+            text-decoration: underline;
+        }
+
+        /* === VỀ THƯƠNG HIỆU (VÀNG) === */
+        .about-section .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            color: var(--brand-red);
+            margin-bottom: 20px;
+        }
+
+        .about-text h2 span {
+            color: var(--brand-blue);
+        }
+        
+        .about-text p {
+            font-size: 18px;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background-color: var(--brand-white);
+            padding: 60px 0 20px;
+            border-top: 2px solid var(--brand-blue);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h3 {
+            color: var(--brand-blue);
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo p {
+            font-size: 16px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Blona', serif;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: var(--brand-red);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Responsive cơ bản */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-products, .feature-row, .clutch-section .container, .about-section .container { flex-direction: column; text-align: center; }
+            .feature-row.reverse { flex-direction: column; }
+            .product-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero bg-blue">
+        <div class="container">
+            <!-- BẮT ĐẦU HEADER -->
+<div class="bg-blue">
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">Mối Nối</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="sp.html">Sản phẩm</a></li>
+                    <li><a href="about us.html">Mối nối</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+                <div class="icons" style="color: var(--brand-white);">🔍 🛒 👤</div>
+            </nav>
+        </header>
+    </div>
+</div>
+<!-- KẾT THÚC HEADER -->
+
+            <div class="hero-content">
+                <h1>Chuyện của vải</h1>
+                <p>Sự kết hợp hoàn hảo giữa nét mộc mạc của vải bố và vẻ đẹp thanh lịch của nghệ thuật thủ công, mang đến cho bạn một phong cách độc đáo và thân thiện với môi trường.</p>
+                
+                <div class="hero-products">
+                    <img src="https://placehold.co/250x200/f1bd50/fffef1?text=Tui+Vang" alt="Túi vàng">
+                    <img src="https://placehold.co/300x250/0066a0/fffef1?text=Tui+Xanh+Main" alt="Túi xanh">
+                    <img src="https://placehold.co/250x200/a71c20/fffef1?text=Tui+Do" alt="Túi đỏ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: var(--brand-white);">
+        <div class="container">
+            <div class="feature-row">
+                <div class="feature-text">
+                    <h2 class="text-red">Túi đeo chéo (Màu màu đỏ)</h2>
+                    <p>Sắc đỏ rực rỡ và ấm áp, kết hợp với họa tiết hoa lục giác tinh tế, mang đến điểm nhấn nổi bật cho trang phục của bạn.</p>
+                </div>
+                <div class="feature-image">
+                    <img src="https://placehold.co/300x300/a71c20/fffef1?text=Tui+Do+Detail" alt="Túi đeo chéo đỏ">
+                </div>
+            </div>
+
+            <div class="feature-row reverse">
+                <div class="feature-text">
+                    <h2 class="text-blue">Túi đeo chéo (Màu màu xanh)</h2>
+                    <p>Sắc xanh dịu mát, thanh lịch, dễ dàng phối hợp với nhiều trang phục khác nhau. Không gian chứa đồ thoải mái, phù hợp cho mọi hoạt động.</p>
+                </div>
+                <div class="feature-image">
+                    <img src="https://placehold.co/300x300/0066a0/fffef1?text=Tui+Xanh+Detail" alt="Túi đeo chéo xanh">
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-text">
+                    <h2 class="text-yellow">Túi đeo chéo (Màu màu vàng)</h2>
+                    <p>Sắc vàng năng động, tươi mới, mang theo năng lượng tích cực cho ngày mới. Chất liệu vải bố mềm mại, đường may chắc chắn.</p>
+                </div>
+                <div class="feature-image">
+                    <img src="https://placehold.co/300x300/f1bd50/333333?text=Tui+Vang+Detail" alt="Túi đeo chéo vàng">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="clutch-section bg-red section-padding">
+        <div class="container">
+            <div class="clutch-image">
+                <img src="https://placehold.co/500x350/0066a0/fffef1?text=Vi+Cam+Tay" alt="Ví cầm tay Mối Nối">
+            </div>
+            <div class="clutch-text">
+                <h2>Ví cầm tay</h2>
+                <p>Nhỏ gọn nhưng đầy tinh tế. Những chiếc ví cầm tay của Mối Nối là người bạn đồng hành lý tưởng cho những buổi tiệc nhẹ nhàng hoặc dạo phố. Thiết kế tỉ mỉ, cầm vừa tay, tôn lên vẻ thanh lịch của bạn.</p>
+                <a href="#" class="btn">Mua Ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: var(--brand-white);">
+        <div class="container">
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://placehold.co/200x250/a71c20/fffef1?text=Sac+Do" alt="Sắc Đỏ">
+                    <h3 class="text-red">SẮC ĐỎ</h3>
+                    <p>Tôn lên vẻ đẹp tự tin và quyến rũ. Phù hợp cho những buổi tiệc tối sang trọng.</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://placehold.co/200x250/0066a0/fffef1?text=Sac+Xanh" alt="Sắc Xanh">
+                    <h3 class="text-blue">SẮC XANH</h3>
+                    <p>Nhẹ nhàng và thanh lịch. Sự lựa chọn hoàn hảo cho những ngày dạo phố.</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://placehold.co/200x250/f1bd50/333333?text=Sac+Vang" alt="Sắc Vàng">
+                    <h3 class="text-yellow">SẮC VÀNG</h3>
+                    <p>Năng động và trẻ trung. Thể hiện cá tính riêng biệt của bạn.</p>
+                </div>
+            </div>
+            <a href="#" class="view-more">Xem thêm</a>
+        </div>
+    </section>
+
+    <section class="about-section bg-yellow section-padding">
+        <div class="container">
+            <div class="about-image">
+                <img src="https://placehold.co/400x400/0066a0/fffef1?text=Hinh+Anh+Thuong+Hieu" alt="Tại sao lại là Mối Nối">
+            </div>
+            <div class="about-text">
+                <h2><span>Tại sao lại là</span> Mối Nối?</h2>
+                <p>Sự liên kết và kết nối không chỉ đơn thuần là việc ghép những mảnh vải lại với nhau. Nó là sự giao thoa của giá trị truyền thống và lối sống hiện đại, giữa người thợ thủ công tài hoa và những cá nhân yêu thích sự bền vững.</p>
+                <br>
+                <p>Mỗi đường kim mũi chỉ là sự tâm huyết, tỉ mỉ, gói ghém một thông điệp tình yêu môi trường. Chúng tôi mong muốn mỗi sản phẩm sẽ là một cầu nối nhỏ mang lại những thay đổi lớn lao.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BẮT ĐẦU FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <h3>Mối Nối</h3>
+                <p>Thương hiệu túi xách thủ công thân thiện môi trường, mang đậm bản sắc văn hóa Việt.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Mối Nối</h4>
+                <ul>
+                    <li><a href="sp.html">Túi đeo chéo</a></li>
+                    <li><a href="sp.html">Ví cầm tay</a></li>
+                    <li><a href="about us.html">Về Mối Nối</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Dịch vụ</h4>
+                <ul>
+                    <li><a href="#">Doanh nghiệp</a></li>
+                    <li><a href="#">CSKH</a></li>
+                    <li><a href="#">Hướng dẫn bảo quản</a></li>
+                    <li><a href="#">Bảo hành</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Pháp lý</h4>
+                <ul>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Mối Nối. Tất cả các quyền được bảo lưu.
+        </div>
+    </div>
+</footer>
+<!-- KẾT THÚC FOOTER -->
+
+</body>
+</html>

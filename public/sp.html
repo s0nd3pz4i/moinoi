@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mối Nối - Sản Phẩm</title>
+    <style>
+        /* === NHÚNG FONT CHỮ === */
+        @font-face {
+            font-family: 'Blona';
+            src: url('1FTVVIPBLONA-REGULAR.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Blona';
+            src: url('1FTVVIPBLONA-ITALIC.TTF') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Aminute';
+            src: url('1FTV-VIP-Aminute.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* === BIẾN MÀU SẮC THƯƠNG HIỆU === */
+        :root {
+            --brand-white: #fffef1;
+            --brand-red: #a71c20;
+            --brand-red-dot: #8c1619;
+            --brand-blue: #0066a0;
+            --brand-blue-dot: #004d7a;
+            --brand-yellow: #f1bd50;
+            --brand-yellow-dot: #d6a542;
+            --text-dark: #111111;
+        }
+
+        /* === RESET & CƠ BẢN === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Aminute', sans-serif; 
+            color: var(--text-dark);
+            background-color: var(--brand-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6, .logo {
+            font-family: 'Blona', serif;
+            font-weight: normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* === PATTERN NỀN (CHẤM BI) === */
+        .bg-blue {
+            background-color: var(--brand-blue);
+            background-image: radial-gradient(var(--brand-blue-dot) 15%, transparent 16%), radial-gradient(var(--brand-blue-dot) 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--brand-white);
+        }
+
+        /* === BỐ CỤC CHUNG === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* === NAVBAR === */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            color: var(--brand-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: var(--brand-white);
+            text-transform: uppercase;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links li a.active {
+            color: var(--brand-yellow);
+            font-weight: bold;
+        }
+
+        .nav-links li a:hover {
+            color: var(--brand-yellow);
+        }
+
+        /* === BANNER SALE === */
+        .sale-banner {
+            background-color: var(--brand-white);
+            padding: 40px 0;
+            border-bottom: 25px solid var(--brand-blue); /* Dải phân cách xanh đậm dưới banner */
+        }
+
+        .sale-banner .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sale-content {
+            flex: 1;
+        }
+
+        .sale-content h3 {
+            color: var(--brand-red);
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .sale-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .sale-item .percent {
+            font-family: 'Blona', serif;
+            font-size: 70px;
+            color: var(--brand-red);
+            line-height: 1;
+            margin-right: 15px;
+        }
+
+        .sale-item .condition {
+            font-size: 14px;
+            color: var(--brand-blue);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .sale-date {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .sale-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .sale-image img {
+            max-width: 450px;
+            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.15));
+        }
+
+        .banner-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .banner-dots span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border: 1px solid var(--brand-blue);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .banner-dots span.active {
+            background-color: var(--brand-blue);
+        }
+
+        /* === MAIN PRODUCTS SECTION === */
+        .products-section {
+            padding: 60px 0;
+            background-color: var(--brand-white);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--brand-red);
+            font-size: 36px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        /* Tabs Điều hướng */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            list-style: none;
+            margin-bottom: 50px;
+        }
+
+        .tab-item {
+            font-size: 18px;
+            color: #555;
+            cursor: pointer;
+            padding-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        .tab-item:hover {
+            color: var(--brand-blue);
+        }
+
+        .tab-item.active {
+            color: var(--brand-blue);
+            font-weight: bold;
+            border-bottom: 2px solid var(--brand-blue);
+        }
+
+        /* Lưới Sản Phẩm */
+        .product-list {
+            display: none; /* Ẩn mặc định, dùng JS để hiển thị */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px 30px;
+        }
+
+        .product-list.active {
+            display: grid;
+        }
+
+        .product-card {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .product-card img {
+            margin: 0 auto 20px;
+            max-width: 220px;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+        }
+
+        .product-card:hover img {
+            transform: translateY(-5px);
+        }
+
+        .product-card h4 {
+            font-size: 26px;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .product-card p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Phân trang (Pagination) */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 60px;
+        }
+
+        .page-num {
+            color: var(--brand-blue);
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 36px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Tạo viền hình lục giác cho số trang đang active */
+        .page-num.active {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50 5, 90 25, 90 75, 50 95, 10 75, 10 25' fill='none' stroke='%230066a0' stroke-width='4'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background-color: var(--brand-white);
+            padding: 50px 0 20px;
+            border-top: 2px solid var(--brand-blue);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h3 {
+            color: var(--brand-blue);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            font-size: 14px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Blona', serif;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: var(--text-dark);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .copyright {
+            text-align: right;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .sale-banner .container { flex-direction: column; text-align: center; }
+            .sale-image { margin-top: 30px; }
+            .product-list { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .copyright { text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .product-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BẮT ĐẦU HEADER -->
+    <div class="bg-blue">
+        <div class="container">
+            <header>
+                <nav>
+                    <div class="logo">Mối Nối</div>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="sp.html">Sản phẩm</a></li>
+                        <li><a href="about us.html">Mối nối</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                    <div class="icons" style="color: var(--brand-white);">🔍 🛒 👤</div>
+                </nav>
+            </header>
+        </div>
+    </div>
+    <!-- KẾT THÚC HEADER -->
+
+    <!-- BANNER SALE -->
+    <section class="sale-banner">
+        <div class="container">
+            <div class="sale-content">
+                <h3>Siêu sale chào mừng đại lễ 30/4 - 1/5</h3>
+                <div class="sale-item">
+                    <span class="percent">15%</span>
+                    <span class="condition">Cho hóa đơn mua sắm từ 1.000.000 VNĐ</span>
+                </div>
+                <div class="sale-item">
+                    <span class="percent">30%</span>
+                    <span class="condition">Cho hóa đơn mua sắm từ 1.500.000 VNĐ</span>
+                </div>
+                <p class="sale-date">Áp dụng từ 01/04/2026 đến 30/04/2026</p>
+            </div>
+            <div class="sale-image">
+                <!-- Thay ảnh banner thật của bạn vào đây -->
+                <img src="https://placehold.co/450x200/fffef1/0066a0?text=Banner+Ví+Cầm+Tay+Sale" alt="Sale Image">
+            </div>
+        </div>
+        <div class="banner-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="active"></span>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- KẾT THÚC BANNER - BẮT ĐẦU SẢN PHẨM -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Sản phẩm của Mối Nối</h2>
+            
+            <!-- TABS MENU -->
+            <ul class="category-tabs">
+                <li class="tab-item active" onclick="switchTab('tui-deo-cheo', this)">Túi Đeo Chéo</li>
+                <li class="tab-item" onclick="switchTab('vi-cam-tay', this)">Ví Cầm Tay</li>
+                <li class="tab-item">Bộ Sản Phẩm</li>
+                <li class="tab-item">Khác</li>
+            </ul>
+
+            <!-- TAB 1: TÚI ĐEO CHÉO -->
+            <div id="tui-deo-cheo" class="product-list active">
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/200x250/a71c20/fffef1?text=Túi+Đỏ" alt="Túi Đeo Chéo 1">
+                    <h4>Túi Đeo Chéo 1</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/200x250/0066a0/fffef1?text=Túi+Xanh" alt="Túi Đeo Chéo 3">
+                    <h4>Túi Đeo Chéo 3</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/200x250/f1bd50/333333?text=Túi+Vàng" alt="Túi Đeo Chéo 5">
+                    <h4>Túi Đeo Chéo 5</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/200x250/a71c20/fffef1?text=Túi+Đỏ" alt="Túi Đeo Chéo 2">
+                    <h4>Túi Đeo Chéo 2</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/200x250/0066a0/fffef1?text=Túi+Xanh" alt="Túi Đeo Chéo 4">
+                    <h4>Túi Đeo Chéo 4</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/200x250/f1bd50/333333?text=Túi+Vàng" alt="Túi Đeo Chéo 6">
+                    <h4>Túi Đeo Chéo 6</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+            </div>
+
+            <!-- TAB 2: VÍ CẦM TAY -->
+            <div id="vi-cam-tay" class="product-list">
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/220x180/a71c20/fffef1?text=Ví+Đỏ" alt="Ví Cầm Tay 1">
+                    <h4>Ví Cầm Tay 1</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/220x180/0066a0/fffef1?text=Ví+Xanh" alt="Ví Cầm Tay 3">
+                    <h4>Ví Cầm Tay 3</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/220x180/f1bd50/333333?text=Ví+Vàng" alt="Ví Cầm Tay 5">
+                    <h4>Ví Cầm Tay 5</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/220x180/a71c20/fffef1?text=Ví+Đỏ" alt="Ví Cầm Tay 2">
+                    <h4>Ví Cầm Tay 2</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/220x180/0066a0/fffef1?text=Ví+Xanh" alt="Ví Cầm Tay 4">
+                    <h4>Ví Cầm Tay 4</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+                <a href="detail product.html" class="product-card">
+                    <img src="https://placehold.co/220x180/f1bd50/333333?text=Ví+Vàng" alt="Ví Cầm Tay 6">
+                    <h4>Ví Cầm Tay 6</h4>
+                    <p>499.000 VNĐ</p>
+                </a>
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="pagination">
+                <span class="page-num active">1</span>
+                <span class="page-num">2</span>
+                <span class="page-num">3</span>
+                <span class="page-num">4</span>
+                <span class="page-num" style="font-size: 24px;">→</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BẮT ĐẦU FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h3>Mối Nối</h3>
+                    <p>Thương hiệu túi xách thủ công thân thiện môi trường, mang đậm bản sắc văn hóa Việt.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Mối Nối</h4>
+                    <ul>
+                        <li><a href="sp.html">Túi đeo chéo</a></li>
+                        <li><a href="sp.html">Ví cầm tay</a></li>
+                        <li><a href="about us.html">Về Mối Nối</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Dịch vụ</h4>
+                    <ul>
+                        <li><a href="#">Doanh nghiệp</a></li>
+                        <li><a href="#">CSKH</a></li>
+                        <li><a href="#">Hướng dẫn bảo quản</a></li>
+                        <li><a href="#">Bảo hành</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Pháp lý</h4>
+                    <ul>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Mối Nối. Tất cả các quyền được bảo lưu.
+            </div>
+        </div>
+    </footer>
+    <!-- KẾT THÚC FOOTER -->
+
+    <!-- SCRIPT CHUYỂN TAB SẢN PHẨM -->
+    <script>
+        function switchTab(tabId, element) {
+            // 1. Tắt active tất cả các tab
+            let tabs = document.querySelectorAll('.tab-item');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // 2. Tắt active tất cả các danh sách sản phẩm
+            let lists = document.querySelectorAll('.product-list');
+            lists.forEach(list => list.classList.remove('active'));
+
+            // 3. Bật active cho tab được click và danh sách tương ứng
+            element.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

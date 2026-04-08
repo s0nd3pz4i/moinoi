@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mối Nối - Chuyện Của Mối Nối</title>
+    <style>
+        /* === NHÚNG FONT CHỮ === */
+        @font-face {
+            font-family: 'Blona';
+            src: url('1FTVVIPBLONA-REGULAR.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Blona';
+            src: url('1FTVVIPBLONA-ITALIC.TTF') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Aminute';
+            src: url('1FTV-VIP-Aminute.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* === BIẾN MÀU SẮC THƯƠNG HIỆU === */
+        :root {
+            --brand-white: #fffef1;
+            --brand-red: #a71c20;
+            --brand-red-dot: #8c1619;
+            --brand-blue: #0066a0;
+            --brand-blue-dot: #004d7a;
+            --brand-yellow: #f1bd50;
+            --brand-yellow-dot: #d6a542;
+            --text-dark: #111111;
+        }
+
+        /* === RESET & CƠ BẢN === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Aminute', sans-serif; 
+            color: var(--text-dark);
+            background-color: var(--brand-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6, .logo {
+            font-family: 'Blona', serif;
+            font-weight: normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* === PATTERN NỀN === */
+        .bg-blue {
+            background-color: var(--brand-blue);
+            background-image: radial-gradient(var(--brand-blue-dot) 15%, transparent 16%), radial-gradient(var(--brand-blue-dot) 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: var(--brand-white);
+        }
+
+        .bg-white {
+            background-color: var(--brand-white);
+        }
+        
+        .text-red { color: var(--brand-red); }
+
+        /* === BỐ CỤC CHUNG === */
+        .container {
+            max-width: 1000px; /* Thu hẹp container lại một chút để tối ưu chiều dài dòng chữ khi đọc */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* === NAVBAR === */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            color: var(--brand-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: var(--brand-white);
+            text-transform: uppercase;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links li a.active {
+            color: var(--brand-yellow);
+            font-weight: bold;
+        }
+
+        .nav-links li a:hover {
+            color: var(--brand-yellow);
+        }
+
+        /* === BANNER === */
+        .about-banner {
+            background-color: var(--brand-white);
+            padding: 60px 0;
+            border-bottom: 20px solid var(--brand-blue);
+        }
+
+        .about-banner .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+        }
+
+        .banner-text {
+            flex: 1;
+        }
+
+        .banner-text h2 {
+            font-size: 72px;
+            color: var(--brand-red);
+            line-height: 1;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .banner-text p {
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 35px;
+            border: 2px solid var(--brand-blue);
+            color: var(--brand-blue);
+            border-radius: 25px;
+            font-family: 'Blona', serif;
+            font-size: 18px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--brand-blue);
+            color: var(--brand-white);
+        }
+
+        .banner-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .banner-image img {
+            max-width: 500px;
+            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.1));
+        }
+
+        .banner-dots {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .banner-dots span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 1px solid var(--brand-blue);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: transparent;
+        }
+        
+        .banner-dots span.active {
+            background-color: var(--brand-white);
+            border: 2px solid var(--brand-blue);
+            /* Tạo viền lục giác giả bằng icon cho dot active (tuỳ chọn nâng cao) */
+        }
+
+        /* === PAGE TITLE === */
+        .page-title {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .page-title h1 {
+            font-size: 42px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* === STORY SECTION === */
+        .story-section {
+            padding: 80px 0 100px;
+        }
+
+        .story-content {
+            color: var(--brand-white);
+        }
+
+        .story-content h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        .story-content h3 {
+            font-family: 'Aminute', sans-serif;
+            font-size: 22px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .story-content p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background-color: var(--brand-white);
+            padding: 50px 0 20px;
+            border-top: 2px solid var(--brand-blue);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-logo h3 {
+            color: var(--brand-blue);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            font-size: 14px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Blona', serif;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: var(--text-dark);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .copyright {
+            text-align: right;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #777;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 20px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .about-banner .container { flex-direction: column; text-align: center; }
+            .banner-image { margin-top: 40px; justify-content: center; }
+            .story-content h2 { font-size: 28px; }
+            .story-content p { font-size: 16px; text-align: left; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .copyright { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BẮT ĐẦU HEADER -->
+<div class="bg-blue">
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">Mối Nối</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="sp.html">Sản phẩm</a></li>
+                    <li><a href="about us.html">Mối nối</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+                <div class="icons" style="color: var(--brand-white);">🔍 🛒 👤</div>
+            </nav>
+        </header>
+    </div>
+</div>
+<!-- KẾT THÚC HEADER -->
+
+    <!-- BANNER (Nền trắng) -->
+    <section class="about-banner">
+        <div class="container">
+            <div class="banner-text">
+                <h2>GIẢM GIÁ 30%</h2>
+                <p>Cho hóa đơn mua sắm từ 1.500.000 VNĐ</p>
+                <a href="#" class="btn-outline">Mua Ngay</a>
+            </div>
+            <div class="banner-image">
+                <img src="https://placehold.co/500x250/fffef1/a71c20?text=Bộ+3+Ví+Cầm+Tay" alt="Khuyến mãi Ví Cầm Tay">
+            </div>
+        </div>
+        <div class="banner-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- TIÊU ĐỀ TRANG -->
+    <section class="page-title bg-white">
+        <h1 class="text-red">CHUYỆN CỦA MỐI NỐI</h1>
+    </section>
+
+    <!-- NỘI DUNG CÂU CHUYỆN (Nền xanh chấm bi) -->
+    <section class="story-section bg-blue">
+        <div class="container story-content">
+            <h2>NGHỆ THUẬT NHẶT NHẠNH THỜI GIAN</h2>
+            
+            <p>Khởi nguồn từ những điều lỡ làng...</p>
+
+            <p>Thế giới thời trang ngoài kia luôn vận hành với một tốc độ chóng mặt. Những cỗ máy công nghiệp cuồn cuộn nhả ra hàng triệu mét vải láng bóng mỗi ngày, và cũng lạnh lùng gạt bỏ đi vô vàn những vạt vải vụn không vừa khuôn rập. Người ta thường nhìn những mảnh cắt lởm chởm rớt lại bên bàn may ấy là phế liệu, là dấu chấm hết cho một vòng đời.</p>
+
+            <p>Nhưng chúng tôi lại thấy khác.</p>
+
+            <p>Trong những vạt lanh hoa nhí vàng ươm rực rỡ, những góc gấm đỏ đô sờn màu hay mảng denim chàm cổ vịt thô ráp... chúng tôi nhìn thấy những phần ký ức đang bị bỏ ngỏ. Chúng là tàn dư của những thanh xuân đã qua, của những thập niên lẩn thẩn mang tên "hoài niệm".</p>
+
+            <h3>Sự kết nối mang tên Mối Nối</h3>
+
+            <p>Thương hiệu Mối Nối ra đời từ một ý niệm tĩnh lặng: Đi chậm lại để lắng nghe nếp thì thầm từ những vụn vỡ.</p>
+
+            <p>Cái tên "Mối Nối" không chỉ đơn thuần là sự hiện diện của đường kim, mũi chỉ, hay nút thắt vật lý ghép nối những vạt vải rời rạc. Đó còn là sự kết nối vô hình giữa quá khứ và hiện tại, giữa sự không hoàn hảo và tính độc bản, giữa đôi bàn tay người thợ thủ công cặm cụi và tâm hồn tự do của người mặc.</p>
+
+            <p>Bằng nghệ thuật chắp vá (Patchwork) tỉ mẩn, chúng tôi gom nhặt những mảnh ghép lộn xộn, mồ côi ấy và ngồi lại khâu chúng vào nhau. Qua từng nhịp kim, sợi chỉ, những thứ tưởng chừng vô dụng được tái sinh, dệt nên một vòng đời mới rực rỡ hơn.</p>
+
+            <h3>Bản thể duy nhất</h3>
+
+            <p>Mối Nối từ chối mọi sự rập khuôn vô hồn. Vì không có hai nếp cắt nào rơi xuống giống hệt nhau, nên mỗi chiếc túi xách rong ruổi xuống phố, mỗi chiếc balo xê dịch, hay từng tấm chăn chần bông ấm áp ra đời từ xưởng may của chúng tôi đều là một "bản thể duy nhất".</p>
+
+            <p>Khi bạn chọn mang trên vai một thiết kế của Mối Nối, bạn không chỉ đang ủng hộ một vòng lặp thời trang bền vững (Eco-fashion), mà bạn đang khoác lên mình một mảnh ghép của thời gian.</p>
+
+            <p>Vải đã kể xong phần của mình. Giờ đến lượt bạn mang những "Mối Nối" ấy đi theo những rực rỡ của thanh xuân.</p>
+        </div>
+    </section>
+
+    <!-- BẮT ĐẦU FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <h3>Mối Nối</h3>
+                <p>Thương hiệu túi xách thủ công thân thiện môi trường, mang đậm bản sắc văn hóa Việt.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Mối Nối</h4>
+                <ul>
+                    <li><a href="sp.html">Túi đeo chéo</a></li>
+                    <li><a href="sp.html">Ví cầm tay</a></li>
+                    <li><a href="about us.html">Về Mối Nối</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Dịch vụ</h4>
+                <ul>
+                    <li><a href="#">Doanh nghiệp</a></li>
+                    <li><a href="#">CSKH</a></li>
+                    <li><a href="#">Hướng dẫn bảo quản</a></li>
+                    <li><a href="#">Bảo hành</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Pháp lý</h4>
+                <ul>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Mối Nối. Tất cả các quyền được bảo lưu.
+        </div>
+    </div>
+</footer>
+<!-- KẾT THÚC FOOTER -->
+
+</body>
+</html>
